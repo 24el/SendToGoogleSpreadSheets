@@ -66,6 +66,7 @@ class GoogleSpreadSheetsSender
         $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
         $client->setApprovalPrompt('force');
+        $client->setAuthConfig($this->config['client_secret']);
         $credentialsPath = __DIR__ . '/../config/credentials.json';
         if (file_exists($credentialsPath)) {
             $accessToken = json_decode(file_get_contents($credentialsPath), true);
